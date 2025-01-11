@@ -1,5 +1,5 @@
-# Use the official Node.js image as the base image
-FROM node:16-alpine
+# Stage 1: Build the application
+FROM node:16-alpine AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -16,8 +16,14 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Expose the port the app runs on
-EXPOSE 3000
+# Stage 2: Serve the application with Nginx
+FROM nginx:alpine
 
-# Start the application
-CMD ["npm", "run", "start"]
+# Copy the built files from the builder stage
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Expose the port Nginx will serve on
+EXPOSE 80
+
+# Start Nginx
+CMD ["nginx", "-g", "daemon off;"]

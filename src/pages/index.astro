@@ -2,6 +2,7 @@
 import Layout from '../layouts/Page.astro'
 import Container from '../components/Container.astro';
 import SignupForm from '../components/SignupForm.astro';
+import QrDemo from '../components/QrDemo.astro';
 
 const seo = {
   title: 'Cannonball by Little Sticks | A splash page template',
@@ -23,7 +24,8 @@ const seo = {
 <Layout seo={seo}>
   <Container narrow>
     <article class="hero__article">
-      <h1 class="fade-in">Coming Soon</h1>
+      <QrDemo />
+      <h3 class="fade-in">Coming Soon...</h3>
       <!-- <p class="fade-in">Be the first to know when our new site is live!</p> -->
       <!-- <SignupForm /> -->
     </article>
