@@ -22,6 +22,6 @@ export const socials = [
   // {
   //   title: 'Dribbble',
   //   icon: 'mdi:dribbble',
-  //   url: 'https://dribbble.com/littlesticksdev',  
+  //   url: 'https://dribbble.com/littlesticksdev',
   // }
-]
+];

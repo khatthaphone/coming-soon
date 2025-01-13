@@ -17,7 +17,7 @@ const description = Astro.props.description || settings.description
 const canonicalURL =
   Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site)
 const image = new URL(Astro.props.image || "./social.png", Astro.site)
-const keywords = Astro.props.keywords.join(", ") || ""
+const keywords = [...Astro.props.keywords].join(", ") || ""
 ---
 
 <meta charset="utf-8" />
