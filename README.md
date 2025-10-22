@@ -34,7 +34,7 @@ You can learn more about this template/theme's creation in [this YouTube video](
 - ✅ A generic but flexible Button component
 - ✅ Automatic Sitemap
 
-## Get Started 
+## Get Started
 
 Customize the global site settings such as the title and description in the `src/data/settings.ts` file
 
