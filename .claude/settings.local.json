@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/kataii/Projects/MCP-Allowed-Projects/qr-maker/.github/workflows/**)",
+      "Read(//Users/kataii/Projects/MCP-Allowed-Projects/qr-maker/infra/gitops/uat/**)",
+      "Read(//Users/kataii/Projects/MCP-Allowed-Projects/qr-maker/infra/gitops/prod/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qr-coming-soon
+  namespace: saas-uat
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: qr-coming-soon
+  template:
+    metadata:
+      labels:
+        app: qr-coming-soon
+    spec:
+      imagePullSecrets:
+      - name: ghcr-secret
+      volumes:
+      - name: tmp-volume
+        emptyDir: {}
+      containers:
+      - name: qr-coming-soon
+        image: ghcr.io/khatthaphone/qr-coming-soon:latest
+        ports:
+        - containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: qr-coming-soon-config
+        volumeMounts:
+        - name: tmp-volume
+          mountPath: /tmp
+        securityContext:
+          runAsUser: 101
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          readOnlyRootFilesystem: true
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 15
+          periodSeconds: 20

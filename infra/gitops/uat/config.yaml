@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: qr-coming-soon-config
+  namespace: saas-uat
+data:
+  NODE_ENV: "development"
