@@ -24,7 +24,7 @@ spec:
         emptyDir: {}
       containers:
       - name: qr-coming-soon
-        image: ghcr.io/khatthaphone/qr-coming-soon:9f5f197ad743a00ca57442fc3a15665582a45c57
+        image: ghcr.io/khatthaphone/qr-coming-soon:cfef17313a314543f1ff39249f09c5e12f863891
         ports:
         - containerPort: 8080
         envFrom:
